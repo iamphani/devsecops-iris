@@ -6,7 +6,7 @@ on: push
 jobs:
   # first job to test the application using pytest
   unittest:
-    runs-on: [ubuntu-latest,windows-latest] # choose the OS for running the action
+    runs-on: [ubuntu-latest, windows-latest] # choose the OS for running the action
     # define the individual sequential steps to be run
     steps:
       - name: Checkout the repository
@@ -23,7 +23,7 @@ jobs:
           pytest
 
   codecoverage:
-    runs-on: [ubuntu-latest,windows-latest] # choose the OS for running the action
+    runs-on: [ubuntu-latest, windows-latest] # choose the OS for running the action
     strategy:
       matrix: 
         python: ['3.7', '3.8', '3.9']
@@ -50,7 +50,7 @@ jobs:
           fail_ci_if_error: true
 
   container-security:
-    runs-on: [ubuntu-latest,windows-latest]
+    runs-on: [ubuntu-latest, windows-latest]
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v2
@@ -76,7 +76,7 @@ jobs:
           path: ./results.sarif
   
   upload_zip:
-    runs-on: [ubuntu-latest,windows-latest] # choose the OS for running the action
+    runs-on: [ubuntu-latest, windows-latest] # choose the OS for running the action
     needs: 
       - unittest
       - codecoverage
