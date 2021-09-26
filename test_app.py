@@ -1,5 +1,6 @@
 from fastapi.testclient import TestClient
 from main import app
+from typing import List
 
 # test to check the correct functioning of the /ping route
 def test_ping():
@@ -29,11 +30,11 @@ def test_pred_virginica():
 def test_feedbackloop():
     # defining a sample payload for the testcase
     payload = {
-        "sepal_length": 3,
+        List["sepal_length": 3,
         "sepal_width": 5,
         "petal_length": 3.2,
         "petal_width": 4.4,
-        "flower_class":"Iris Virginica"
+        "flower_class":"Iris Virginica"]
     }
     with TestClient(app) as client:
         response = client.post("/feedback_loop", json=payload)
