@@ -37,7 +37,7 @@ def test_feedbackloop():
         "flower_class":"Iris Virginica"
     }
     with TestClient(app) as client:
-        response = client.post("/feedback_loop", json=payload)
+        response = client.post("/feedback_loop", json=[payload])
         # asserting the correct response is received
-        #assert response.status_code == 200
+        assert response.status_code == 200
         assert response.json() == {"detail": "Feedback loop successful"}
